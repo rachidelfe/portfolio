@@ -4,7 +4,8 @@ const blogPosts = require('./data/blogPosts');
 const services = require('./data/services');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const DEFAULT_PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.HOST || '127.0.0.1';
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -134,6 +135,21 @@ app.use((req, res) => {
   renderPage(res, '404', `404 | ${siteName}`, 'error-page');
 });
 
-app.listen(PORT, () => {
-  console.log(`Bioinformatics portfolio running at http://localhost:${PORT}`);
-});
+function startServer(port) {
+  const server = app.listen(port, HOST, () => {
+    console.log(`Bioinformatics portfolio running at http://${HOST}:${port}`);
+  });
+
+  server.on('error', (error) => {
+    if (error.code === 'EADDRINUSE') {
+      const nextPort = port + 1;
+      console.warn(`Port ${port} is in use, trying ${nextPort}...`);
+      startServer(nextPort);
+      return;
+    }
+
+    console.error('Server failed to start:', error.message);
+  });
+}
+
+startServer(DEFAULT_PORT);
