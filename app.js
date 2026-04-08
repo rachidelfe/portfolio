@@ -4,7 +4,7 @@ const blogPosts = require('./data/blogPosts');
 const services = require('./data/services');
 
 const app = express();
-const DEFAULT_PORT = Number(process.env.PORT) || 3000;
+const DEFAULT_PORT = Number(process.env.PORT) || 8080;
 const HOST = process.env.HOST || '127.0.0.1';
 
 app.set('view engine', 'ejs');
