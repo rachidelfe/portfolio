@@ -1,0 +1,51 @@
+<%- include('partials/head', {title: title}) %>
+<body class="<%= bodyClass || '' %>">
+  <%- include('partials/header', {bodyClass: bodyClass}) %>
+
+  <main class="main">
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Bioinformatics support for research teams that need reliable analysis, reproducible workflows, and clear scientific outputs.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <% const servicesList = typeof services !== 'undefined' ? services : []; %>
+
+        <div class="row justify-content-center g-5">
+          <% servicesList.forEach((service, index) => { %>
+            <div class="col-md-6" data-aos="<%= index % 2 === 0 ? 'fade-right' : 'fade-left' %>" data-aos-delay="<%= 100 + (Math.floor(index / 2) * 100) %>">
+              <a href="/services/<%= service.slug %>" class="service-card-link">
+                <article class="service-item service-card-clean">
+                  <div class="service-content">
+                    <div class="service-card-meta">
+                      <span class="service-category-badge"><%= service.category %></span>
+                      <span class="service-starting-price">Starting at <strong><%= service.startingPrice %></strong></span>
+                    </div>
+                    <h3><%= service.title %></h3>
+                    <p><%= service.excerpt %></p>
+                    <div class="service-card-footer">
+                      <span class="service-link service-link-static">
+                        <span>View Service</span>
+                        <i class="bi bi-arrow-right"></i>
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            </div>
+          <% }) %>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+  </main>
+
+  <%- include('partials/footer') %>

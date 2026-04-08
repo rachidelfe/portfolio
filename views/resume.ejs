@@ -1,0 +1,130 @@
+<%- include('partials/head', {title: title}) %>
+<body class="<%= bodyClass || '' %>">
+  <%- include('partials/header', {bodyClass: bodyClass}) %>
+
+  <main class="main">
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>Education, research experience, and technical strengths focused on bioinformatics, computational biology, and reproducible data analysis.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-6">
+
+            <!-- Education Section -->
+            <div class="resume-item" data-aos="fade-up">
+              <h3 class="resume-title">Education</h3>
+
+              <div class="resume-content">
+                <article class="education-item">
+                  <h4>M.Sc. in Bioinformatics</h4>
+                  <h5>2019 - 2021</h5>
+                  <p class="institution"><em>Department of Computational Biology</em></p>
+                  <p>Focused on microbial genomics, sequence analysis, statistical methods, and reproducible scientific computing for high-throughput biological datasets.</p>
+                </article>
+
+                <article class="education-item">
+                  <h4>B.Sc. in Biology</h4>
+                  <h5>2015 - 2019</h5>
+                  <p class="institution"><em>Department of Biological Sciences</em></p>
+                  <p>Built a strong foundation in genetics, microbiology, ecology, and experimental design while developing an early interest in computational analysis.</p>
+                </article>
+              </div>
+            </div><!-- End Education Section -->
+
+            <!-- Professional Skills Section -->
+            <div class="resume-item skills-animation" data-aos="fade-up">
+              <h3 class="resume-title">Professional Skills</h3>
+
+              <div class="resume-content">
+                <div class="skill-item">
+                  <h4>Microbiome &amp; Metagenomics Analysis</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>Pipeline Development &amp; Automation</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>Data Analysis &amp; Statistics</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <div class="skill-item">
+                  <h4>Scientific Visualization &amp; Reporting</h4>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Professional Skills Section -->
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Experience Section -->
+            <div class="resume-item" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Professional Experience</h3>
+
+              <div class="resume-content">
+                <article class="experience-item">
+                  <h4>Freelance Bioinformatician &amp; Data Scientist</h4>
+                  <h5>2023 - Present</h5>
+                  <p class="company"><em>Independent Research Collaboration</em></p>
+                  <ul>
+                    <li>Support researchers and labs with microbiome analysis, metagenomics workflows, and eDNA project design.</li>
+                    <li>Build reproducible pipelines for sequencing data processing, statistical analysis, and report generation.</li>
+                    <li>Deploy workflows on HPC systems using Slurm, Conda, and documented execution environments.</li>
+                    <li>Create clear visualizations and summaries for manuscripts, grant reports, and collaborative review.</li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <h4>Bioinformatics Research Associate</h4>
+                  <h5>2020 - 2023</h5>
+                  <p class="company"><em>Genomics &amp; Microbial Ecology Program</em></p>
+                  <ul>
+                    <li>Analyzed human, environmental, and plant microbiome datasets using reproducible microbial profiling workflows.</li>
+                    <li>Collaborated with wet-lab teams to align sequencing strategy, metadata structure, and downstream interpretation.</li>
+                    <li>Maintained internal analysis scripts in Python and R for quality control, differential analysis, and figure generation.</li>
+                    <li>Contributed to technical methods documentation and publication-ready result reporting.</li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <h4>Computational Biology Research Assistant</h4>
+                  <h5>2017 - 2020</h5>
+                  <p class="company"><em>University Research Laboratory</em></p>
+                  <ul>
+                    <li>Assisted with sequence processing, metadata curation, and statistical analysis for molecular biology and ecology projects.</li>
+                    <li>Helped develop early workflow templates for amplicon data processing and reproducible project organization.</li>
+                    <li>Prepared figures, tables, and reproducible notebooks for lab meetings and manuscript drafts.</li>
+                    <li>Supported students and collaborators in learning basic bioinformatics tools and command-line workflows.</li>
+                  </ul>
+                </article>
+              </div>
+            </div><!-- End Experience Section -->
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Resume Section -->
+
+  </main>
+
+  <%- include('partials/footer') %>

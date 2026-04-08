@@ -1,0 +1,104 @@
+<%- include('partials/head', {title: title}) %>
+<body class="<%= bodyClass || '' %>">
+  <%- include('partials/header', {bodyClass: bodyClass}) %>
+
+  <main class="main">
+
+    <section id="service-details" class="service-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-detail-shell">
+          <a href="/services" class="blog-back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Services</span>
+          </a>
+
+          <div class="service-detail-header">
+            <span class="service-category-badge"><%= service.category %></span>
+            <h1><%= service.title %></h1>
+            <p class="service-detail-excerpt"><%= service.excerpt %></p>
+            <p class="service-detail-intro"><%= service.intro %></p>
+          </div>
+
+          <div class="service-includes">
+            <h3>What You Will Get</h3>
+            <div class="row g-3">
+              <% service.whatYouGet.forEach((item) => { %>
+                <div class="col-md-6">
+                  <div class="service-include-card">
+                    <i class="bi bi-check2-circle"></i>
+                    <span><%= item %></span>
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+
+          <div class="pricing-section">
+            <div class="section-title text-start">
+              <h2>Pricing Plans</h2>
+              <p>Select the option that fits your dataset size, reporting needs, and level of collaboration.</p>
+            </div>
+
+            <div class="row g-4">
+              <% service.plans.forEach((plan) => { %>
+                <div class="col-lg-3 col-md-6">
+                  <article class="pricing-card <%= plan.recommended ? 'pricing-card-featured' : '' %>" data-aos="fade-up">
+                    <% if (plan.badge) { %>
+                      <span class="pricing-badge"><%= plan.badge %></span>
+                    <% } %>
+                    <div class="pricing-card-head">
+                      <h3><%= plan.name %></h3>
+                      <div class="pricing-price"><%= plan.price %></div>
+                      <div class="pricing-delivery">Estimated delivery: <%= plan.delivery %></div>
+                    </div>
+                    <p class="pricing-description"><%= plan.description %></p>
+                    <ul class="pricing-feature-list">
+                      <% plan.features.forEach((feature) => { %>
+                        <li><i class="bi bi-check2"></i> <span><%= feature %></span></li>
+                      <% }) %>
+                    </ul>
+                    <button
+                      type="button"
+                      class="btn btn-primary pricing-select-btn"
+                      data-contact-trigger
+                      data-service="<%= service.title %>"
+                      data-plan="<%= plan.name %>"
+                      data-whatsapp-message="Hello, I am interested in <%= service.title %> - <%= plan.name %>."
+                      data-email-subject="Service Request: <%= service.title %> - <%= plan.name %>">
+                      Select Plan
+                    </button>
+                  </article>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+
+          <div class="service-faq-section">
+            <div class="section-title text-start">
+              <h2>FAQ</h2>
+              <p>Common questions about scope, delivery, and how the service is typically handled.</p>
+            </div>
+            <div class="accordion project-accordion" id="service-faq-accordion">
+              <% service.faqs.forEach((faq, index) => { %>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button <%= index === 0 ? '' : 'collapsed' %>" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-<%= index + 1 %>" aria-expanded="<%= index === 0 ? 'true' : 'false' %>" aria-controls="faq-collapse-<%= index + 1 %>">
+                      <%= faq.question %>
+                    </button>
+                  </h2>
+                  <div id="faq-collapse-<%= index + 1 %>" class="accordion-collapse collapse <%= index === 0 ? 'show' : '' %>" data-bs-parent="#service-faq-accordion">
+                    <div class="accordion-body">
+                      <p><%= faq.answer %></p>
+                    </div>
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <%- include('partials/footer') %>

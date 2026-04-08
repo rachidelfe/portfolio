@@ -1,0 +1,76 @@
+<%- include('partials/head', {title: title}) %>
+<body class="<%= bodyClass || '' %>">
+  <%- include('partials/header', {bodyClass: bodyClass}) %>
+
+  <main class="main">
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Blog</h2>
+        <p>Articles, tutorials, and practical notes on microbiome analysis, metagenomics workflows, eDNA, and scientific data interpretation.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li data-filter="*" class="filter-active">All</li>
+            <% categories.forEach((category) => { %>
+              <li data-filter=".<%= category.filterClass %>"><%= category.name %></li>
+            <% }) %>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+            <% posts.forEach((post) => { %>
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item <%= post.filterClass %>">
+                <a href="/blog/<%= post.slug %>" class="blog-card-link">
+                  <article class="portfolio-card blog-card">
+                    <div class="portfolio-img">
+                      <img src="<%= post.image %>" alt="<%= post.title %>" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                      <div class="blog-card-meta">
+                        <time datetime="<%= post.isoDate %>"><%= post.date %></time>
+                        <span><%= post.readTime %></span>
+                      </div>
+                      <h4><%= post.title %></h4>
+                      <p class="blog-card-excerpt"><%= post.excerpt %></p>
+                      <div class="blog-card-footer">
+                        <div class="blog-badge-row">
+                          <span class="blog-badge"><%= post.category %></span>
+                          <span class="blog-badge"><%= post.readTime %></span>
+                        </div>
+                        <span class="blog-card-readmore">Read More <i class="bi bi-arrow-right"></i></span>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              </div>
+            <% }) %>
+          </div><!-- End Portfolio Items Container -->
+
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-contact-trigger
+            data-service="Bioinformatics Research Project"
+            data-plan="Project Discussion"
+            data-whatsapp-message="Hello, I would like to discuss a bioinformatics research project."
+            data-email-subject="Service Request: Bioinformatics Research Project">
+            Discuss a Research Project
+          </button>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+  </main>
+
+  <%- include('partials/footer') %>

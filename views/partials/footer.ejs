@@ -1,0 +1,102 @@
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="copyright text-center ">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename"><%= new Date().getFullYear() %> <%= typeof siteName !== 'undefined' ? siteName : 'Rachid Elfermi' %></strong> <span>All Rights Reserved<br></span></p>
+    </div>
+    <div class="social-links d-flex justify-content-center">
+      <a href="https://github.com/rachidelfe" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/rachidelfermi/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+      <a href="mailto:rachid.elfermi@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      <a href="/blog" aria-label="Blog"><i class="bi bi-journal-text"></i></a>
+    </div>
+    <div class="credits">
+      Bioinformatics services, research collaboration, and data-driven insights for microbiome, metagenomics, and eDNA projects.
+    </div>
+  </div>
+</footer>
+
+<a href="<%= typeof whatsappUrl !== 'undefined' ? whatsappUrl : 'https://wa.me/YOUR_NUMBER?text=Hello%20Rachid%20Elfermi%2C%20I%20am%20interested%20in%20your%20bioinformatics%20services.' %>" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<div class="modal fade contact-choice-modal" id="contactChoiceModal" tabindex="-1" aria-labelledby="contactChoiceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title" id="contactChoiceModalLabel">How would you like to proceed?</h5>
+          <p class="mb-0 mt-2" id="contactChoiceModalText">Choose your preferred contact method for this service.</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-choice-actions">
+          <a href="#" id="contactChoiceWhatsapp" class="contact-choice-btn contact-choice-whatsapp" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-whatsapp"></i>
+            <strong>WhatsApp</strong>
+            <span>Recommended for fast replies and direct project discussion.</span>
+          </a>
+          <a href="#" id="contactChoiceEmail" class="contact-choice-btn contact-choice-email">
+            <i class="bi bi-envelope"></i>
+            <strong>Email</strong>
+            <span>Use email if you want to send a more detailed request or supporting context.</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/php-email-form/validate.js"></script>
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/typed.js/typed.umd.js"></script>
+<script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+<!-- Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script>
+  (function() {
+    const modalElement = document.getElementById('contactChoiceModal');
+    const whatsappButton = document.getElementById('contactChoiceWhatsapp');
+    const emailButton = document.getElementById('contactChoiceEmail');
+    const modalText = document.getElementById('contactChoiceModalText');
+
+    if (!modalElement || !whatsappButton || !emailButton || typeof bootstrap === 'undefined') {
+      return;
+    }
+
+    const contactChoiceModal = new bootstrap.Modal(modalElement);
+
+    document.querySelectorAll('[data-contact-trigger]').forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const service = trigger.getAttribute('data-service') || 'Bioinformatics Service';
+        const plan = trigger.getAttribute('data-plan') || 'General Inquiry';
+        const whatsappMessage = trigger.getAttribute('data-whatsapp-message') || `Hello, I am interested in ${service} - ${plan}.`;
+        const emailSubject = trigger.getAttribute('data-email-subject') || `Service Request: ${service} - ${plan}`;
+
+        whatsappButton.href = `https://wa.me/YOUR_NUMBER?text=${encodeURIComponent(whatsappMessage)}`;
+        emailButton.href = `/contact?subject=${encodeURIComponent(emailSubject)}`;
+        modalText.textContent = `Choose how you would like to continue for ${service}${plan ? ` - ${plan}` : ''}.`;
+
+        contactChoiceModal.show();
+      });
+    });
+  })();
+</script>
+</body>
+</html>

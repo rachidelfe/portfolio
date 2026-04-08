@@ -1,0 +1,83 @@
+<%- include('partials/head', {title: title}) %>
+<body class="<%= bodyClass || '' %>">
+  <%- include('partials/header', {bodyClass: bodyClass}) %>
+
+  <main class="main">
+
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-article-shell">
+          <a href="/blog" class="blog-back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span>Back to Blog</span>
+          </a>
+
+          <header class="blog-article-header">
+            <div class="blog-tags mb-3">
+              <% post.tags.forEach((tag) => { %>
+                <span class="blog-tag"><%= tag %></span>
+              <% }) %>
+            </div>
+
+            <h1><%= post.title %></h1>
+            <p class="blog-article-subtitle"><%= post.excerpt %></p>
+
+            <div class="blog-meta-row">
+              <span class="blog-meta-item"><i class="bi bi-calendar-check"></i> <%= post.date %></span>
+              <span class="blog-meta-item"><i class="bi bi-clock"></i> <%= post.readTime %></span>
+              <span class="blog-meta-item"><i class="bi bi-diagram-3"></i> <%= post.category %></span>
+              <span class="blog-meta-item"><i class="bi bi-person"></i> <%= siteName %> - <%= siteRole %></span>
+            </div>
+          </header>
+
+          <figure class="blog-featured-image" data-aos="fade-up" data-aos-delay="150">
+            <img src="<%= post.image %>" alt="<%= post.title %>" class="img-fluid">
+          </figure>
+
+          <div class="blog-article-body">
+            <p><%= post.lead %></p>
+
+            <% post.sections.forEach((section, index) => { %>
+              <% if (index === 0) { %>
+                <h2><%= section.heading %></h2>
+              <% } else { %>
+                <h3><%= section.heading %></h3>
+              <% } %>
+
+              <% section.paragraphs.forEach((paragraph) => { %>
+                <p><%= paragraph %></p>
+              <% }) %>
+            <% }) %>
+
+            <section class="blog-key-takeaways">
+              <h3>Key Takeaways</h3>
+              <ul>
+                <% post.takeaways.forEach((item) => { %>
+                  <li><%= item %></li>
+                <% }) %>
+              </ul>
+            </section>
+
+            <section class="blog-cta">
+              <h3>Need help with microbiome or metagenomics analysis?</h3>
+              <p>Contact me via WhatsApp or Email if you need support with sequencing workflows, HPC deployment, microbiome interpretation, or scientific reporting for your research project.</p>
+              <div class="blog-cta-actions">
+                <a href="<%= whatsappUrl %>" class="btn-view-project" target="_blank" rel="noopener noreferrer">Contact via WhatsApp</a>
+                <a href="mailto:rachid.elfermi@gmail.com" class="btn-next-project">Contact via Email <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </section>
+
+            <div class="cta-buttons mt-4">
+              <a href="/blog/<%= nextPost.slug %>" class="btn-next-project">Next Article <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <%- include('partials/footer') %>
