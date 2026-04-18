@@ -1,11 +1,11 @@
 const sharedFaqs = [
   {
     question: 'What type of data can you analyze?',
-    answer: 'I work with microbiome datasets including 16S/18S/ITS amplicon data and shotgun metagenomics from environmental, clinical, or plant-associated samples.'
+    answer: 'I work with microbiome, metagenomics, RNA-seq, whole-genome sequencing, Sanger sequencing, and phylogenetic datasets from environmental, clinical, plant-associated, and comparative studies.'
   },
   {
-    question: 'Do you support both QIIME2 and DADA2 workflows?',
-    answer: 'Yes. I can work with QIIME2, DADA2, or custom pipelines depending on your project requirements and reproducibility needs.'
+    question: 'Do you support custom tools and workflows?',
+    answer: 'Yes. I can work with standard tools such as QIIME2, DADA2, Kraken2, MetaPhlAn, R-based workflows, and custom pipelines depending on your project requirements.'
   },
   {
     question: 'What do I receive after the analysis?',
@@ -17,11 +17,11 @@ const sharedFaqs = [
   },
   {
     question: 'How do we start working together?',
-    answer: 'You can select a plan and contact me via WhatsApp or Email. We will discuss your data, goals, and timeline before starting.'
+    answer: 'You can select a plan and reach out through the contact page or by email. We will discuss your data, goals, and timeline before starting.'
   }
 ];
 
-module.exports = [
+const services = [
   {
     slug: 'microbiome-analysis',
     title: 'Microbiome Analysis',
@@ -302,6 +302,207 @@ module.exports = [
     ]
   },
   {
+    slug: 'rnaseq-analysis',
+    title: 'RNA-seq Analysis',
+    category: 'Transcriptomics',
+    startingPrice: '$60',
+    excerpt: 'End-to-end RNA-seq analysis for differential expression, transcript-level interpretation, and report-ready biological insights.',
+    intro: 'This service supports transcriptomics projects that need a clear workflow from raw reads to interpretable expression results. It is designed for researchers and teams who want reliable quality control, robust comparisons, and clear downstream reporting.',
+    whatYouGet: [
+      'Quality control and preprocessing assessment',
+      'Alignment or quantification workflow adapted to your study',
+      'Differential expression and functional interpretation support',
+      'Figures, tables, and structured result summaries'
+    ],
+    faqs: sharedFaqs,
+    plans: [
+      {
+        name: 'Basic',
+        price: '$60',
+        delivery: '3-5 days',
+        description: 'A focused RNA-seq package for smaller studies or pilot analyses.',
+        features: [
+          'QC and read assessment',
+          'Expression matrix generation',
+          'Basic differential expression summary',
+          'Short interpretation notes'
+        ]
+      },
+      {
+        name: 'Standard',
+        price: '$110',
+        delivery: '5-7 days',
+        description: 'A complete RNA-seq analysis package for standard multi-sample studies.',
+        recommended: true,
+        badge: 'Most Popular',
+        features: [
+          'QC, alignment or pseudoalignment',
+          'Differential expression analysis',
+          'Figure-ready outputs',
+          'Structured report and result summary'
+        ]
+      },
+      {
+        name: 'Premium',
+        price: '$160',
+        delivery: '7-10 days',
+        description: 'A more detailed package with stronger reporting and interpretation support.',
+        features: [
+          'Extended comparisons',
+          'Functional interpretation guidance',
+          'Enhanced figures and tables',
+          'Methods-ready reporting notes'
+        ]
+      },
+      {
+        name: 'Custom',
+        price: 'Adapted to your data & needs',
+        delivery: 'Custom timeline',
+        description: 'For complex designs, repeated analyses, or larger transcriptomics collaborations.',
+        features: [
+          'Complex experimental designs',
+          'Large cohort support',
+          'Flexible deliverables',
+          'Team-oriented collaboration'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'sanger-analysis',
+    title: 'Sanger Analysis',
+    category: 'Targeted Sequencing',
+    startingPrice: '$25',
+    excerpt: 'Cleaning, reviewing, assembling, and interpreting Sanger sequencing outputs for targeted validation and gene-level studies.',
+    intro: 'This service is designed for researchers who need reliable Sanger sequence review and interpretation. It is useful for validation work, amplicon confirmation, isolate identification, and small targeted sequencing projects.',
+    whatYouGet: [
+      'Chromatogram quality review and sequence cleaning',
+      'Forward and reverse read assembly when applicable',
+      'BLAST or reference comparison support',
+      'Clear sequence summary and reporting output'
+    ],
+    faqs: sharedFaqs,
+    plans: [
+      {
+        name: 'Basic',
+        price: '$25',
+        delivery: '1-2 days',
+        description: 'A compact package for a small number of chromatograms.',
+        features: [
+          'Sequence cleaning',
+          'Basic assembly support',
+          'Simple sequence review',
+          'Short summary output'
+        ]
+      },
+      {
+        name: 'Standard',
+        price: '$50',
+        delivery: '2-4 days',
+        description: 'A balanced package for routine Sanger validation and interpretation.',
+        recommended: true,
+        badge: 'Best Value',
+        features: [
+          'Multiple chromatogram review',
+          'Consensus sequence assembly',
+          'BLAST or reference matching',
+          'Structured result summary'
+        ]
+      },
+      {
+        name: 'Premium',
+        price: '$80',
+        delivery: '4-6 days',
+        description: 'A more complete package for larger targeted sequencing batches.',
+        features: [
+          'Larger sequence batches',
+          'Detailed comparison support',
+          'Enhanced reporting',
+          'Interpretation guidance'
+        ]
+      },
+      {
+        name: 'Custom',
+        price: 'Adapted to your data & needs',
+        delivery: 'Custom timeline',
+        description: 'For larger validation projects or institution-specific sequence review needs.',
+        features: [
+          'Batch-oriented delivery',
+          'Flexible reporting',
+          'Custom comparison logic',
+          'Collaborative review process'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'phylogenetic-analysis',
+    title: 'Phylogenetic Analysis',
+    category: 'Evolution & Comparative Analysis',
+    startingPrice: '$40',
+    excerpt: 'Sequence alignment, tree construction, comparative interpretation, and publication-ready phylogenetic figures.',
+    intro: 'This service supports projects that require evolutionary or comparative sequence analysis. It is useful for isolate comparison, taxonomic placement, gene family studies, and figure-ready phylogenetic reporting.',
+    whatYouGet: [
+      'Sequence alignment and quality review',
+      'Phylogenetic tree construction and support metrics',
+      'Comparative interpretation for your biological question',
+      'Publication-ready tree figures and summaries'
+    ],
+    faqs: sharedFaqs,
+    plans: [
+      {
+        name: 'Basic',
+        price: '$40',
+        delivery: '2-3 days',
+        description: 'A focused package for smaller alignments and one phylogenetic tree.',
+        features: [
+          'Alignment preparation',
+          'Single tree construction',
+          'Basic annotation',
+          'Short interpretation notes'
+        ]
+      },
+      {
+        name: 'Standard',
+        price: '$75',
+        delivery: '4-6 days',
+        description: 'A complete package for standard comparative phylogenetic analysis.',
+        recommended: true,
+        badge: 'Most Popular',
+        features: [
+          'Alignment and tree workflow',
+          'Bootstrap or support evaluation',
+          'Annotated figure outputs',
+          'Structured reporting'
+        ]
+      },
+      {
+        name: 'Premium',
+        price: '$110',
+        delivery: '6-8 days',
+        description: 'A more detailed package with stronger annotation and interpretation support.',
+        features: [
+          'Expanded comparative context',
+          'Enhanced tree styling',
+          'Detailed interpretation support',
+          'Methods-ready output notes'
+        ]
+      },
+      {
+        name: 'Custom',
+        price: 'Adapted to your data & needs',
+        delivery: 'Custom timeline',
+        description: 'For large datasets, multi-gene phylogenies, or custom comparative workflows.',
+        features: [
+          'Large sequence sets',
+          'Flexible tree-building strategy',
+          'Custom comparative scope',
+          'Project-tailored deliverables'
+        ]
+      }
+    ]
+  },
+  {
     slug: 'data-visualization',
     title: 'Data Visualization',
     category: 'Reporting',
@@ -440,3 +641,5 @@ module.exports = [
     ]
   }
 ];
+
+export default services;

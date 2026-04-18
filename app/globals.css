@@ -1,0 +1,45 @@
+:root {
+  --default-font: var(--font-roboto), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: var(--font-raleway), sans-serif;
+  --nav-font: var(--font-poppins), sans-serif;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.mobile-nav-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.contact-choice-modal-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+}
+
+.contact-choice-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 10, 17, 0.72);
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-choice-modal-shell .contact-choice-modal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.contact-choice-modal-shell .modal-dialog {
+  width: min(720px, 100%);
+  margin: 0;
+}

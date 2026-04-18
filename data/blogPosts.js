@@ -1,4 +1,4 @@
-module.exports = [
+const blogPosts = [
   {
     slug: 'amplicon-sequencing-explained',
     title: 'Amplicon Sequencing Explained',
@@ -976,3 +976,5 @@ module.exports = [
     tags: ['Visualization', 'R', 'Python', 'Dashboards', 'Reporting']
   }
 ];
+
+export default blogPosts;
